@@ -19,10 +19,24 @@
 
 # production
 /build
+/dist
+
+# typescript
+*.tsbuildinfo
+
+# caches
+.eslintcache
+.prettiercache
+.turbo
+.cache
 
 # misc
 .DS_Store
+Thumbs.db
+ehthumbs.db
+Desktop.ini
 *.pem
+certificates
 
 # debug
 npm-debug.log*
@@ -30,12 +44,14 @@ yarn-debug.log*
 yarn-error.log*
 .pnpm-debug.log*
 
-# env files (can opt-in for committing if needed)
+# env and secrets (keep .env.example)
 .env*
+!.env.example
+*.local
+credentials.json
 
 # vercel
 .vercel
 
-# typescript
-*.tsbuildinfo
-next-env.d.ts
+# sanity
+.sanity

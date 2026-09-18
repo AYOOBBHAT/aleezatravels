@@ -1,0 +1,158 @@
+import { defineField, defineType } from "sanity";
+import { seoFields } from "./objects";
+
+export const blogPost = defineType({
+  name: "blogPost",
+  title: "Blog post",
+  type: "document",
+  groups: [
+    { name: "content", title: "Content", default: true },
+    { name: "seo", title: "SEO" },
+  ],
+  fields: [
+    defineField({
+      name: "title",
+      title: "Title",
+      type: "string",
+      group: "content",
+      validation: (rule) => rule.required(),
+    }),
+    defineField({
+      name: "slug",
+      title: "Slug",
+      type: "slug",
+      group: "content",
+      options: { source: "title", maxLength: 96 },
+      validation: (rule) => rule.required(),
+    }),
+    defineField({
+      name: "excerpt",
+      title: "Excerpt",
+      type: "text",
+      rows: 3,
+      group: "content",
+      validation: (rule) => rule.required(),
+    }),
+    defineField({
+      name: "body",
+      title: "Body",
+      type: "array",
+      group: "content",
+      of: [
+        { type: "block" },
+        {
+          type: "object",
+          name: "note",
+          title: "Note",
+          fields: [
+            defineField({
+              name: "text",
+              title: "Text",
+              type: "text",
+              rows: 3,
+              validation: (rule) => rule.required(),
+            }),
+          ],
+        },
+      ],
+      validation: (rule) => rule.required().min(1),
+    }),
+    defineField({
+      name: "featuredImage",
+      title: "Featured image",
+      type: "altImage",
+      group: "content",
+      validation: (rule) => rule.required(),
+    }),
+    defineField({
+      name: "author",
+      title: "Author",
+      type: "string",
+      group: "content",
+      initialValue: "Aleeza Travels",
+      validation: (rule) => rule.required(),
+    }),
+    defineField({
+      name: "category",
+      title: "Category",
+      type: "string",
+      group: "content",
+      options: {
+        list: [
+          { title: "Kashmir Travel Guide", value: "kashmir-travel-guide" },
+          { title: "Kashmir Destinations", value: "kashmir-destinations" },
+          { title: "Travel Tips", value: "travel-tips" },
+          { title: "Honeymoon", value: "honeymoon" },
+          { title: "Family Travel", value: "family-travel" },
+        ],
+      },
+      validation: (rule) => rule.required(),
+    }),
+    defineField({
+      name: "tags",
+      title: "Tags",
+      type: "array",
+      group: "content",
+      of: [{ type: "string" }],
+      options: { layout: "tags" },
+    }),
+    defineField({
+      name: "publishedAt",
+      title: "Published date",
+      type: "date",
+      group: "content",
+      validation: (rule) => rule.required(),
+    }),
+    defineField({
+      name: "updatedAt",
+      title: "Updated date",
+      type: "date",
+      group: "content",
+    }),
+    defineField({
+      name: "relatedPackages",
+      title: "Related packages",
+      type: "array",
+      group: "content",
+      of: [{ type: "reference", to: [{ type: "travelPackage" }] }],
+    }),
+    defineField({
+      name: "relatedDestinations",
+      title: "Related destinations",
+      type: "array",
+      group: "content",
+      of: [{ type: "reference", to: [{ type: "destination" }] }],
+    }),
+    defineField({
+      name: "faqs",
+      title: "FAQs",
+      type: "array",
+      group: "content",
+      of: [{ type: "faqItem" }],
+    }),
+    defineField({
+      name: "featured",
+      title: "Featured",
+      type: "boolean",
+      group: "content",
+      initialValue: false,
+    }),
+    defineField({
+      name: "published",
+      title: "Published",
+      type: "boolean",
+      group: "content",
+      initialValue: false,
+      description: "Turn this on to show the article at /blog.",
+    }),
+    ...seoFields,
+  ],
+  preview: {
+    select: { title: "title", media: "featuredImage", published: "published" },
+    prepare: ({ title, media, published }) => ({
+      title,
+      subtitle: published ? "Published" : "Draft",
+      media,
+    }),
+  },
+});
