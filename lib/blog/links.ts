@@ -6,5 +6,5 @@ export function blogCategoryHref(category?: BlogCategorySlug): string {
     return paths.blog;
   }
 
-  return `${paths.blog}?category=${category}`;
+  return paths.blogCategory(category);
 }

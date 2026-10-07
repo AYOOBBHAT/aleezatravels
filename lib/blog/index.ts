@@ -10,9 +10,11 @@ export type {
 } from "@/lib/blog/schema";
 export {
   BLOG_CATEGORIES,
+  BLOG_CATEGORY_DESCRIPTIONS,
   BLOG_CATEGORY_LABELS,
   categoryLabel,
   isBlogCategorySlug,
+  readingTimeMinutes,
   tableOfContents,
 } from "@/lib/blog/schema";
 export {

@@ -33,16 +33,23 @@ export function ArticleBody({ content }: { content: BlogBlock[] }) {
     <div className="space-y-6">
       {content.map((block) => {
         switch (block._type) {
-          case "heading":
+          case "heading": {
+            const Heading = block.level === 3 ? "h3" : "h2";
+
             return (
-              <h2
+              <Heading
                 key={block._key}
                 id={block.id}
-                className="scroll-mt-28 text-2xl sm:text-3xl"
+                className={
+                  Heading === "h3"
+                    ? "scroll-mt-28 text-xl sm:text-2xl"
+                    : "scroll-mt-28 text-2xl sm:text-3xl"
+                }
               >
                 {block.text}
-              </h2>
+              </Heading>
             );
+          }
           case "paragraph":
             return (
               <p key={block._key} className="text-base leading-7 text-muted-foreground">

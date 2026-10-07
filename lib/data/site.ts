@@ -80,6 +80,14 @@ export const siteRoutes: SiteRoute[] = [
     priority: 0.7,
   },
   {
+    path: paths.corporateTravel,
+    label: "Corporate Travel",
+    description:
+      "Plan team trips, corporate retreats, and employee getaways to Kashmir with customized itineraries.",
+    changeFrequency: "monthly",
+    priority: 0.8,
+  },
+  {
     path: paths.customTrips,
     label: "Custom Trips",
     description: "Customized Kashmir trip packages built around your dates and pace.",
@@ -143,6 +151,7 @@ export const footerNav = {
     { href: paths.honeymoon, label: "Honeymoon" },
     { href: paths.familyTours, label: "Family Tours" },
     { href: paths.groupTours, label: "Group Tours" },
+    { href: paths.corporateTravel, label: "Corporate Travel" },
     { href: paths.customTrips, label: "Custom Trips" },
   ],
   company: [

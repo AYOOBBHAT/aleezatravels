@@ -15,7 +15,10 @@ export function articleBlocks(slug: string) {
 
   return {
     h2(id: string, text: string): BlogBlock {
-      return { _type: "heading", _key: key(), id, text };
+      return { _type: "heading", _key: key(), id, text, level: 2 };
+    },
+    h3(id: string, text: string): BlogBlock {
+      return { _type: "heading", _key: key(), id, text, level: 3 };
     },
     p(...parts: Array<string | BlogSpan>): BlogBlock {
       return {

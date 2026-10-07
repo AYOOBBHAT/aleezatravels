@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { CoverImage } from "@/components/media/cover-image";
 import { blogCategoryHref } from "@/lib/blog/links";
-import { categoryLabel, type BlogArticle } from "@/lib/blog/schema";
+import { categoryLabel, readingTimeMinutes, type BlogArticle } from "@/lib/blog/schema";
 import { formatDisplayDate } from "@/lib/format";
 import { paths } from "@/lib/seo/paths";
 
@@ -17,6 +17,7 @@ export function BlogCard({ post }: { post: BlogArticle }) {
             {categoryLabel(post.category)}
           </Link>
           <time dateTime={post.publishedAt}>{formatDisplayDate(post.publishedAt)}</time>
+          <span>{readingTimeMinutes(post.content)} min read</span>
         </div>
         <h2 className="mt-2 font-heading text-2xl leading-snug">
           <Link href={paths.blogPost(post.slug)} className="hover:underline">

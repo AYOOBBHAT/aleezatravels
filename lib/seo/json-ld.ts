@@ -173,6 +173,24 @@ export function travelAgencyJsonLd(settings: SiteSettings) {
   });
 }
 
+export function corporateTravelPageJsonLd() {
+  return compact({
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "@id": `${absoluteUrl(paths.corporateTravel)}#webpage`,
+    url: absoluteUrl(paths.corporateTravel),
+    name: "Corporate Travel to Kashmir",
+    description:
+      "Plan team trips, corporate retreats and employee getaways in Kashmir with customized itineraries, accommodation and transportation.",
+    isPartOf: {
+      "@id": websiteId(),
+    },
+    about: {
+      "@id": organizationId(),
+    },
+  });
+}
+
 export function contactPageJsonLd(settings: SiteSettings) {
   const entityId = shouldEmitLocalBusiness(settings)
     ? travelAgencyId()

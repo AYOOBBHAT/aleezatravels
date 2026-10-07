@@ -2,6 +2,7 @@ import type { MetadataRoute } from "next";
 import { getPublishedPosts } from "@/lib/blog/source";
 import { getPublishedDestinations } from "@/lib/destinations/source";
 import { getPublishedPackages } from "@/lib/packages/source";
+import { BLOG_CATEGORIES } from "@/lib/blog/schema";
 import { siteRoutes } from "@/lib/data/site";
 import { paths } from "@/lib/seo/paths";
 import { absoluteUrl } from "@/lib/seo/urls";
@@ -38,5 +39,20 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     priority: 0.5,
   }));
 
-  return [...staticRoutes, ...destinationRoutes, ...packageRoutes, ...blogPostRoutes];
+  const publishedCategories = new Set(posts.map((post) => post.category));
+  const blogCategoryRoutes: MetadataRoute.Sitemap = BLOG_CATEGORIES.filter((category) =>
+    publishedCategories.has(category.slug),
+  ).map((category) => ({
+    url: absoluteUrl(paths.blogCategory(category.slug)),
+    changeFrequency: "weekly",
+    priority: 0.45,
+  }));
+
+  return [
+    ...staticRoutes,
+    ...destinationRoutes,
+    ...packageRoutes,
+    ...blogCategoryRoutes,
+    ...blogPostRoutes,
+  ];
 }

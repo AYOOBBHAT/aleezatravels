@@ -8,6 +8,7 @@ import type { FaqItem, MediaAsset } from "@/lib/types";
 export const BLOG_CATEGORIES = [
   { slug: "kashmir-travel-guide", label: "Kashmir Travel Guide" },
   { slug: "kashmir-destinations", label: "Kashmir Destinations" },
+  { slug: "corporate-travel", label: "Corporate Travel" },
   { slug: "travel-tips", label: "Travel Tips" },
   { slug: "honeymoon", label: "Honeymoon" },
   { slug: "family-travel", label: "Family Travel" },
@@ -25,6 +26,7 @@ export type BlogHeadingBlock = {
   _key: string;
   id: string;
   text: string;
+  level?: 2 | 3;
 };
 
 export type BlogParagraphBlock = {
@@ -77,9 +79,22 @@ export type BlogArticle = {
 export const BLOG_CATEGORY_LABELS: Record<BlogCategorySlug, string> = {
   "kashmir-travel-guide": "Kashmir Travel Guide",
   "kashmir-destinations": "Kashmir Destinations",
+  "corporate-travel": "Corporate Travel",
   "travel-tips": "Travel Tips",
   honeymoon: "Honeymoon",
   "family-travel": "Family Travel",
+};
+
+export const BLOG_CATEGORY_DESCRIPTIONS: Record<BlogCategorySlug, string> = {
+  "kashmir-travel-guide":
+    "Practical notes on seasons, first visits, and how we write a Kashmir itinerary.",
+  "kashmir-destinations":
+    "Place-by-place notes for Srinagar, Gulmarg, Pahalgam, Sonamarg, and quieter meadows.",
+  "corporate-travel":
+    "Guides and ideas for companies planning team trips, corporate retreats, employee getaways and group travel to Kashmir.",
+  "travel-tips": "Packing, budgets, and the practical pieces of a Kashmir trip.",
+  honeymoon: "Pacing, houseboats on request, and slower Kashmir stays for couples.",
+  "family-travel": "How we pace Kashmir trips for mixed-age groups and school dates.",
 };
 
 export function categoryLabel(slug: BlogCategorySlug): string {
@@ -94,4 +109,36 @@ export function tableOfContents(content: BlogBlock[]): { id: string; text: strin
   return content
     .filter((block): block is BlogHeadingBlock => block._type === "heading")
     .map((block) => ({ id: block.id, text: block.text }));
+}
+
+export function readingTimeMinutes(content: BlogBlock[]): number {
+  const words = content.reduce((total, block) => {
+    if (block._type === "paragraph") {
+      return (
+        total +
+        block.spans.reduce(
+          (count, span) => count + span.text.trim().split(/\s+/).filter(Boolean).length,
+          0,
+        )
+      );
+    }
+
+    if (block._type === "heading" || block._type === "note") {
+      return total + block.text.trim().split(/\s+/).filter(Boolean).length;
+    }
+
+    if (block._type === "list") {
+      return (
+        total +
+        block.items.reduce(
+          (count, item) => count + item.trim().split(/\s+/).filter(Boolean).length,
+          0,
+        )
+      );
+    }
+
+    return total;
+  }, 0);
+
+  return Math.max(1, Math.round(words / 200));
 }

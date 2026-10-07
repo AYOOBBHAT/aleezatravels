@@ -59,12 +59,19 @@ const nextConfig: NextConfig = {
       ],
     },
   ],
-  redirects: async () =>
-    legacyRedirects.map((redirect) => ({
+  redirects: async () => [
+    ...legacyRedirects.map((redirect) => ({
       source: redirect.source,
       destination: redirect.destination,
       permanent: true,
     })),
+    {
+      source: "/blog",
+      has: [{ type: "query" as const, key: "category", value: "(?<slug>[a-z0-9-]+)" }],
+      destination: "/blog/category/:slug",
+      permanent: true,
+    },
+  ],
 };
 
 export default nextConfig;

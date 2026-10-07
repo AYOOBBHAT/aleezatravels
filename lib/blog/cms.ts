@@ -82,6 +82,7 @@ export const blogPostSanitySchema = {
         list: [
           "kashmir-travel-guide",
           "kashmir-destinations",
+          "corporate-travel",
           "travel-tips",
           "honeymoon",
           "family-travel",

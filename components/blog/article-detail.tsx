@@ -3,6 +3,7 @@ import { MessageCircle } from "lucide-react";
 import { ArticleBody } from "@/components/blog/article-body";
 import { ArticleToc } from "@/components/blog/article-toc";
 import { RelatedPosts } from "@/components/blog/related-posts";
+import { CorporateCta } from "@/components/cta/corporate-cta";
 import { RelatedDestinations } from "@/components/destinations/related-destinations";
 import { FaqList } from "@/components/faq/faq-list";
 import { ButtonLink } from "@/components/ui/button-link";
@@ -13,12 +14,18 @@ import { RelatedPackages } from "@/components/packages/related-packages";
 import { Breadcrumbs, breadcrumbsFor } from "@/components/seo/breadcrumbs";
 import { JsonLd } from "@/components/seo/json-ld";
 import { blogCategoryHref } from "@/lib/blog/links";
-import { categoryLabel, tableOfContents, type BlogArticle } from "@/lib/blog/schema";
+import {
+  categoryLabel,
+  readingTimeMinutes,
+  tableOfContents,
+  type BlogArticle,
+} from "@/lib/blog/schema";
 import type { TravelDestination } from "@/lib/destinations/schema";
 import { formatDisplayDate } from "@/lib/format";
 import type { TravelPackage } from "@/lib/packages/schema";
 import { articleJsonLd, faqPageJsonLd } from "@/lib/seo/json-ld";
 import { paths } from "@/lib/seo/paths";
+import { corporateEnquiryMessage } from "@/lib/corporate/message";
 import { configuredWhatsAppHref, generalEnquiryMessage } from "@/lib/seo/urls";
 import { businessConfig } from "@/lib/site-config";
 
@@ -35,13 +42,17 @@ export async function ArticleDetail({
   relatedPackages,
   relatedDestinations,
 }: ArticleDetailProps) {
+  const isCorporate = post.category === "corporate-travel";
   const breadcrumbs = breadcrumbsFor(
     { label: "Blog", href: paths.blog },
+    { label: categoryLabel(post.category), href: blogCategoryHref(post.category) },
     { label: post.title, href: paths.blogPost(post.slug) },
   );
   const toc = tableOfContents(post.content);
   const showUpdated = post.updatedAt !== post.publishedAt;
-  const whatsappHref = await configuredWhatsAppHref(generalEnquiryMessage());
+  const whatsappHref = await configuredWhatsAppHref(
+    isCorporate ? corporateEnquiryMessage() : generalEnquiryMessage(),
+  );
 
   return (
     <article>
@@ -60,6 +71,9 @@ export async function ArticleDetail({
             {showUpdated ? (
               <time dateTime={post.updatedAt}>Updated {formatDisplayDate(post.updatedAt)}</time>
             ) : null}
+            <span className="normal-case tracking-normal">
+              {readingTimeMinutes(post.content)} min read
+            </span>
           </p>
           <h1 className="mt-3 text-4xl sm:text-5xl">{post.title}</h1>
           <p className="mt-4 text-lg leading-7 text-muted-foreground">{post.excerpt}</p>
@@ -84,6 +98,11 @@ export async function ArticleDetail({
               </div>
               <div className="mt-8 lg:mt-0">
                 <ArticleBody content={post.content} />
+                {isCorporate ? (
+                  <div className="mt-10">
+                    <CorporateCta invert={false} />
+                  </div>
+                ) : null}
               </div>
             </div>
             <aside className="hidden lg:sticky lg:top-28 lg:block">
@@ -116,6 +135,9 @@ export async function ArticleDetail({
       />
       <RelatedPosts posts={relatedPosts} />
 
+      {isCorporate ? (
+        <CorporateCta />
+      ) : (
       <Section className="bg-primary text-primary-foreground">
         <Container className="max-w-3xl">
           <h2 className="text-3xl text-primary-foreground sm:text-4xl">Plan this trip with us</h2>
@@ -140,6 +162,7 @@ export async function ArticleDetail({
           </div>
         </Container>
       </Section>
+      )}
     </article>
   );
 }

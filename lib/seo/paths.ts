@@ -11,6 +11,8 @@ export const paths = {
   about: "/about",
   blog: "/blog",
   blogPost: (slug: string) => `/blog/${slug}`,
+  blogCategory: (slug: string) => `/blog/category/${slug}`,
+  corporateTravel: "/corporate-travel",
   contact: "/contact",
   privacy: "/privacy",
   terms: "/terms",

@@ -81,6 +81,7 @@ export const blogPost = defineType({
         list: [
           { title: "Kashmir Travel Guide", value: "kashmir-travel-guide" },
           { title: "Kashmir Destinations", value: "kashmir-destinations" },
+          { title: "Corporate Travel", value: "corporate-travel" },
           { title: "Travel Tips", value: "travel-tips" },
           { title: "Honeymoon", value: "honeymoon" },
           { title: "Family Travel", value: "family-travel" },

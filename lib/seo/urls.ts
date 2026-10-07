@@ -25,6 +25,7 @@ export {
   generalEnquiryMessage,
   packageEnquiryMessage,
 };
+export { corporateEnquiryMessage } from "@/lib/corporate/message";
 
 export function honeymoonEnquiryMessage(): string {
   return packageEnquiryMessage("a Kashmir honeymoon");
