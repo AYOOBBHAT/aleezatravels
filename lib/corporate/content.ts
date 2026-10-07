@@ -1,43 +1,43 @@
 export const corporateAudiences = [
   {
-    title: "Technology companies",
+    title: "Corporate and company trips",
     summary:
-      "Offsites and team trips for product, engineering, and operations groups who want a change of scene without a rigid coach tour.",
+      "A Kashmir itinerary written for the people actually travelling — not a brochure programme copied onto a group.",
   },
   {
-    title: "Startups",
+    title: "Team trips and team outings",
     summary:
-      "Smaller founder-led groups that need a flexible Kashmir plan, not a locked programme copied from a brochure.",
+      "Shared days in Srinagar and the meadows, paced so the group stays together without a rigid coach checklist.",
   },
   {
-    title: "IT teams",
+    title: "Corporate retreats",
     summary:
-      "Delivery, support, and infrastructure teams travelling together, with rooming and transfers planned around the headcount.",
+      "Slower stays when the point is conversation and rest as much as sightseeing. Meeting space is confirmed only if a stay can provide it.",
   },
   {
-    title: "SaaS companies",
+    title: "Corporate offsites",
     summary:
-      "Annual getaways and milestone trips where the days can mix lake time, meadow outings, and quieter evenings.",
+      "A few days away from the usual week, with rooming, meals, and transfers planned around headcount and dates.",
   },
   {
-    title: "Digital agencies",
+    title: "Employee getaways",
     summary:
-      "Creative and client-service teams looking for a shared trip that still leaves room to rest.",
+      "Annual or recognition travel planned as a group movement. Hotels and vehicles are named in the quote, not assumed from this page.",
   },
   {
-    title: "Consulting firms",
+    title: "Employee retreats",
     summary:
-      "Project or practice groups that need a clear itinerary, airport transfers, and hotels confirmed in writing.",
+      "Quieter pacing, fewer hotel changes, and sightseeing that does not fill every hour — still customized, not a set package.",
   },
   {
-    title: "Remote teams",
+    title: "Leadership and small groups",
     summary:
-      "People who rarely share an office: a Kashmir trip as a chance to be in the same place for a few days.",
+      "Compact plans for a dozen people or fewer, where a houseboat night or a single meadow overnight can be the whole shape of the trip.",
   },
   {
-    title: "Corporate groups",
+    title: "Larger company outings",
     summary:
-      "HR, people teams, and event planners arranging an employee getaway, incentive trip, or annual outing.",
+      "HR and event planners arranging a bigger employee trip. Vehicle type and room sharing are set after we know the real headcount.",
   },
 ] as const;
 
@@ -135,14 +135,24 @@ export const corporateFaqs = [
       "You can tell us a category, a budget band, or properties you already prefer. We only name hotels or houseboats after they can be checked for your dates. Nothing on this website is a confirmed allotment.",
   },
   {
+    question: "Can you plan a company trip to Kashmir?",
+    answer:
+      "Yes. A company trip is a customized group itinerary: nights, room sharing, meals, and transfers written after we know headcount and dates. Published packages on this site are starting points, not a locked corporate tariff.",
+  },
+  {
     question: "Can you arrange a Kashmir team outing?",
     answer:
       "Yes. Shorter outings and longer circuits are both possible. A compact plan might stay based in Srinagar with meadow day trips; a longer one adds overnights in Gulmarg or Pahalgam.",
   },
   {
-    question: "Can you organize corporate retreats?",
+    question: "Can you organize a corporate retreat or offsite?",
     answer:
-      "We can plan a retreat-style Kashmir stay: fewer hotel changes, later starts, and sightseeing that does not fill every hour. Dedicated meeting rooms are only promised if a stay can provide them for your group.",
+      "We can plan a retreat- or offsite-style Kashmir stay: fewer hotel changes, later starts, and sightseeing that does not fill every hour. Dedicated meeting rooms are only promised if a stay can provide them for your group.",
+  },
+  {
+    question: "Can you arrange an employee retreat or getaway?",
+    answer:
+      "Yes. Employee getaways and recognition trips are planned as group travel, with stays and vehicles confirmed in a written quote. We do not publish a standard employee-retreat package or a client list.",
   },
   {
     question: "How far in advance should a company book?",

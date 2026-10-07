@@ -83,7 +83,7 @@ export const siteRoutes: SiteRoute[] = [
     path: paths.corporateTravel,
     label: "Corporate Travel",
     description:
-      "Plan team trips, corporate retreats, and employee getaways to Kashmir with customized itineraries.",
+      "Plan corporate travel to Kashmir: company trips, team outings, retreats, offsites, and employee getaways.",
     changeFrequency: "monthly",
     priority: 0.8,
   },

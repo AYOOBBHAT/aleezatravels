@@ -45,12 +45,17 @@ export const whyKashmirCorporateTeamTrip = defineArticle({
   ],
   content: [
     p(
-      "A corporate team trip has a different job from a honeymoon or a family holiday. People who share a Slack channel need a few days in the same place, meals that can be coordinated, and a plan that does not strand half the group on a long transfer. Kashmir can do that work if you treat it as a planned movement, not a postcard.",
+      "A corporate team trip has a different job from a honeymoon or a family holiday. People who work together need a few days in the same place, meals that can be coordinated, and a plan that does not strand half the group on a long transfer. Kashmir can do that work if you treat it as a planned movement, not a postcard.",
     ),
     p(
       "This note is for companies considering a ",
       link("corporate trip to Kashmir", hrefs.corporate),
-      " — technology teams, startups, agencies, consulting groups, and HR-led employee getaways. It is not a claim that Kashmir is the only good offsite, and it does not invent visitor numbers or a list of brands we have hosted.",
+      " — a company outing, retreat, offsite, or employee getaway. It is not a claim that Kashmir is the only good offsite, and it does not invent visitor numbers or a list of brands we have hosted. IT and technology companies looking for outing ideas can start from ",
+      link(
+        "Kashmir team outing ideas for IT and technology companies",
+        hrefs.itOuting,
+      ),
+      ".",
     ),
     h2("scenery-that-is-not-an-office", "Scenery that is not another office"),
     p(
@@ -66,7 +71,7 @@ export const whyKashmirCorporateTeamTrip = defineArticle({
     ),
     h2("a-break-from-routine", "A break from the usual week"),
     p(
-      "Remote and hybrid companies, in particular, use a shared trip as the week people are actually together. An offsite in Kashmir is still work-adjacent: people talk, walk, and eat in the same rooms. It is not a training syllabus unless you ask us to leave gaps for your own sessions.",
+      "Teams that rarely share an office often use a shared trip as the week people are actually together. An offsite in Kashmir is still work-adjacent: people talk, walk, and eat in the same rooms. It is not a training syllabus unless you ask us to leave gaps for your own sessions.",
     ),
     ul([
       "Later starts after a late arrival into Srinagar Airport.",

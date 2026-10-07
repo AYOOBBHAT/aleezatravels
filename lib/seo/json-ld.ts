@@ -179,9 +179,9 @@ export function corporateTravelPageJsonLd() {
     "@type": "WebPage",
     "@id": `${absoluteUrl(paths.corporateTravel)}#webpage`,
     url: absoluteUrl(paths.corporateTravel),
-    name: "Corporate Travel to Kashmir",
+    name: "Corporate & Team Travel to Kashmir",
     description:
-      "Plan team trips, corporate retreats and employee getaways in Kashmir with customized itineraries, accommodation and transportation.",
+      "Plan corporate travel to Kashmir: company trips, team outings, corporate retreats, offsites and employee getaways with customized itineraries, stays and transport.",
     isPartOf: {
       "@id": websiteId(),
     },

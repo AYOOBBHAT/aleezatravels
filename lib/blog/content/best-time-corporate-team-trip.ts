@@ -83,7 +83,7 @@ export const bestTimeCorporateTeamTrip = defineArticle({
       "Road and gondola status are week-of decisions, not slogans in a pitch deck.",
       "Hotel demand is higher in holiday weeks and peak summer; we do not publish occupancy rates.",
       "Large groups often prefer seasons when meadow roads are more likely to be ordinary driving, not a debate.",
-      "Small product teams can use winter if they want quiet more than long walks.",
+      "Smaller teams can use winter if they want quiet more than long walks.",
     ]),
     note(
       "Nothing here is a forecast. If your dates are fixed, we plan around them. If they are flexible, tell us whether you want gardens, meadows, or snow.",

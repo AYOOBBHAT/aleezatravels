@@ -28,9 +28,10 @@ import { configuredWhatsAppHref } from "@/lib/seo/urls";
 import { businessConfig } from "@/lib/site-config";
 
 export const metadata = createPageMetadata({
-  title: "Corporate Travel to Kashmir | Team Trips & Corporate Tours | Aleeza Travels",
+  title:
+    "Corporate & Team Travel to Kashmir | Company Trips, Retreats & Offsites | Aleeza Travels",
   description:
-    "Plan memorable team trips, corporate retreats and employee getaways in Kashmir with customized itineraries, accommodation and transportation.",
+    "Plan corporate travel to Kashmir: company trips, team outings, corporate retreats, offsites and employee getaways with customized itineraries, stays and transport.",
   path: paths.corporateTravel,
   absoluteTitle: true,
   image: blogImages.classic,
@@ -68,9 +69,9 @@ export default async function CorporateTravelPage() {
                 Corporate & Team Travel to Kashmir
               </h1>
               <p className="mt-4 max-w-xl text-base leading-7 text-muted-foreground sm:text-lg">
-                Plan memorable team trips, corporate retreats and employee
-                getaways in Kashmir with customized itineraries, accommodation
-                and transportation.
+                Plan a corporate trip, company outing, team retreat or employee
+                getaway in Kashmir. Itineraries, stays and transport are written
+                after we know dates and group size.
               </p>
               <div className="mt-8 flex flex-col gap-3 sm:flex-row">
                 <ButtonLink href={`${paths.corporateTravel}#enquiry`}>
@@ -103,7 +104,7 @@ export default async function CorporateTravelPage() {
             id="who-we-help-heading"
             eyebrow="Who we help"
             title="Companies planning a Kashmir trip"
-            description="HR teams, founders, team leads, and event planners use this page to start a group enquiry. We do not list client names here."
+            description="HR teams, team leads, and event planners use this page to start a group enquiry — a company trip, retreat, offsite, or employee getaway. We do not list client names here."
           />
           <ul className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
             {corporateAudiences.map((item) => (
@@ -162,7 +163,7 @@ export default async function CorporateTravelPage() {
               ranking.
             </p>
             <p className="mt-4 text-base leading-7 text-muted-foreground">
-              Group size changes the plan. A ten-person product team and a
+              Group size changes the plan. A ten-person team and a
               fifty-person annual outing do not need the same rooming or
               vehicles. We write those details after the enquiry. Read destination
               notes for{" "}
@@ -182,6 +183,16 @@ export default async function CorporateTravelPage() {
                 Kashmir tour packages
               </Link>{" "}
               and adapt them for a company group.
+            </p>
+            <p className="mt-4 text-base leading-7 text-muted-foreground">
+              IT and technology companies looking for outing ideas can use{" "}
+              <Link
+                href={paths.blogPost("kashmir-team-outing-ideas-it-technology-companies")}
+                className="text-primary hover:underline"
+              >
+                Kashmir team outing ideas for IT and technology companies
+              </Link>
+              . The trip itself is still planned like any other company group.
             </p>
           </div>
           <ul className="grid gap-4">
@@ -275,7 +286,7 @@ export default async function CorporateTravelPage() {
       {posts.length > 0 ? (
         <RelatedPosts
           title="Corporate travel notes"
-          description="Guides for companies considering a Kashmir team trip, retreat, or employee getaway."
+          description="Guides for a Kashmir company trip, team outing, corporate retreat, offsite, or employee getaway."
           posts={posts.slice(0, 6)}
         />
       ) : null}

@@ -25,12 +25,13 @@ export const kashmirTeamOutingIdeasIt = defineArticle({
   category: "corporate-travel",
   tags: [
     "IT company trip Kashmir",
-    "tech company offsite Kashmir",
+    "technology company team outing Kashmir",
+    "startup team trip Kashmir",
     "Kashmir team outing",
   ],
-  seoTitle: "Kashmir Team Outing Ideas for IT and Tech Companies",
+  seoTitle: "Kashmir Team Outing Ideas for IT and Technology Companies",
   seoDescription:
-    "Team outing ideas in Kashmir for IT and technology companies: Srinagar houseboats on request, Dal Lake, Gulmarg, Pahalgam, and Sonamarg. Plan a tech offsite.",
+    "Team outing ideas in Kashmir for IT and technology companies, including startup team trips: Srinagar houseboats on request, Dal Lake, Gulmarg, Pahalgam, and Sonamarg.",
   relatedPackageSlugs: [...corporateRelatedPackages],
   relatedDestinationSlugs: [...corporateRelatedDestinations],
   featured: false,
